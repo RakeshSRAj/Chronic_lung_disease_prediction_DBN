@@ -6,4 +6,26 @@ sagemaker SDK
 
 CloudWatch
 
+
 Libraries: numpy, pandas, sklearn, tensorflow or pytorch, matplotlib, custom BER + PSO logic
+
+Environment Setup in SageMaker:
+1 Start SageMaker Notebook Instance
+
+2 Attach an IAM role with access to S3 (AmazonS3FullAccess or custom policy).
+
+3 Install dependencies inside the notebook:
+!pip install tensorflow scikit-learn imbalanced-learn pyswarms pillow
+
+4 Upload your CXR dataset to S3 in this format:
+s3://your-bucket-name/cxr-dataset/
+    ├── Emphysema/
+    ├── Fibrosis/
+    ├── Pneumonia/
+    └── ...
+5.Run the code chronic_lung_disease_aws.ipynb in your SageMaker notebook cell.
+
+6.Save the model 
+import joblib
+joblib.dump(final_model, 'dbn_model.pkl')
+s3.upload_file('dbn_model.pkl', BUCKET, 'models/dbn_model.pkl')
