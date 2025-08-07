@@ -1,0 +1,9 @@
+import boto3
+import sagemaker
+
+session = sagemaker.Session()
+bucket = 'your-s3-bucket-name'
+prefix = 'lung-disease'
+
+s3_path = session.upload_data('lung_disease.csv', bucket=bucket, key_prefix=prefix)
+print(f"Data uploaded to {s3_path}")

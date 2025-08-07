@@ -1,0 +1,9 @@
+AWS Account
+
+IAM role with S3 and SageMaker access
+
+sagemaker SDK
+
+CloudWatch
+
+Libraries: numpy, pandas, sklearn, tensorflow or pytorch, matplotlib, custom BER + PSO logic
